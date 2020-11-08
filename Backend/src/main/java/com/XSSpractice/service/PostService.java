@@ -38,4 +38,12 @@ public class PostService {
         });
         requestPost.update(postUpdateDto.getTitle(), postUpdateDto.getContent());
     }
+
+    @Transactional(readOnly = true)
+    public Post findById(long id) {
+        Post requestPost =  postRepository.findById(id).orElseThrow(()->{
+            return new IllegalArgumentException("해당 게시물이 없습니다.");
+        });
+        return requestPost;
+    }
 }
