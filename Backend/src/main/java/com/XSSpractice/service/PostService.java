@@ -1,6 +1,7 @@
 package com.XSSpractice.service;
 
 import com.XSSpractice.Repository.PostRepository;
+import com.XSSpractice.dto.PostUpdateDto;
 import com.XSSpractice.dto.PostWriteDto;
 import com.XSSpractice.model.Post;
 import lombok.RequiredArgsConstructor;
@@ -13,11 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class PostService {
 
-    private PostRepository postRepository;
+    private final PostRepository postRepository;
 
     @Transactional(readOnly = true)
-    public Page<Post> getAllPosts(Pageable pageable){
-        return postRepository.findAllPost(pageable);
+    public Page<Post> findAll(Pageable pageable){
+        return postRepository.findAll(pageable);
     }
 
     @Transactional
@@ -28,5 +29,13 @@ public class PostService {
     @Transactional
     public void deletePost(long id) {
         postRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void update(long id, PostUpdateDto postUpdateDto) {
+        Post requestPost = postRepository.findById(id).orElseThrow(()->{
+            return new IllegalArgumentException("해당 id의 게시글이 없습니다.");
+        });
+        requestPost.update(postUpdateDto.getTitle(), postUpdateDto.getContent());
     }
 }
