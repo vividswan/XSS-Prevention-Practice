@@ -36,7 +36,7 @@ public class PostApiController {
     }
 
     @PutMapping("/api/v1/update/{id}")
-    public int update(@PathVariable long  id, PostUpdateDto postUpdateDto){
+    public int update(@RequestBody PostUpdateDto postUpdateDto, @PathVariable long id){
         postService.update(id, postUpdateDto);
         return HttpStatus.OK.value();
     }
