@@ -41,4 +41,9 @@ public class PostApiController {
         return HttpStatus.OK.value();
     }
 
+    @GetMapping("/api/v1/detail/{id}")
+    public Post detail(@PathVariable long id){
+        return postService.findById(id);
+    }
+
 }
