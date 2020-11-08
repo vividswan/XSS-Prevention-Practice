@@ -4,11 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.apache.tomcat.jni.Local;
-import org.springframework.data.annotation.CreatedDate;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 @Getter
 @NoArgsConstructor
@@ -25,8 +24,8 @@ public class Post {
     @Lob
     private String content;
 
-    @CreatedDate
-    private LocalDateTime createdTime;
+    @CreationTimestamp
+    private Timestamp createdTime;
 
     private String user;
 
