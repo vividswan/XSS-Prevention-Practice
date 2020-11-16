@@ -12,6 +12,9 @@ export default {
   name: "App.vue",
   components: {
     SideBar : ()=>import('./components/SideBar')
+  },
+  created() {
+    this.$cookie.set("random", Math.random().toString(36).substr(2,11));
   }
 }
 </script>
