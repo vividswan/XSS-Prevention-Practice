@@ -36,7 +36,7 @@ name: "SideBar.vue",
   data () {
     return {
       items: [
-        { title: '일반 게시판', icon: 'mdi-view-dashboard', link : '/' },
+        { title: '게시판', icon: 'mdi-view-dashboard', link : '/' },
         { title: '게시글 작성', icon: 'mdi-plus', link : '/post/add' }
       ],
       right: null,

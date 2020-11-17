@@ -12,8 +12,8 @@
             <span style="margin-left : 20px;">작성 시간 : {{post.createdTime | moment('YYYY-MM-DD HH:mm:ss')}}</span>
           </v-card-subtitle>
           <v-divider></v-divider>
-          <v-card-text style="min-height : 300px;" v-html="post.content">
-
+          <v-card-text style="min-height : 300px;">
+              {{post.content}}
           </v-card-text>
         </v-card>
       </v-col>
@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: "DetailPost.vue",
+  name: "DetailPost2.vue",
   data: () => ({
     post : '',
   }),

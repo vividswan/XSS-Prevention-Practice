@@ -10,6 +10,11 @@ const routes = [
     component: () => import('../views/PostList')
   },
   {
+    path: '/post/normal/:id',
+    name: 'Post',
+    component: () => import('../views/DetailPost2')
+  },
+  {
     path: '/post/add',
     name: 'AddPost',
     component: () => import('../views/AddPost')

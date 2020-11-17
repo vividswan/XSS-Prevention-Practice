@@ -25,10 +25,13 @@
               </v-list-item-subtitle>
             </v-list-item-content>
           </router-link>
-          <router-link :to='{path : "/post/update/" + item.id}' class="link">
+          <router-link :to='{path : "/post/normal/" + item.id}' class="link margin-left">
+            <v-icon>mdi-security</v-icon>
+          </router-link>
+          <router-link :to='{path : "/post/update/" + item.id}' class="link margin-left">
             <v-icon>mdi-table-edit</v-icon>
           </router-link>
-          <v-icon @click="deletePost(item.id)">mdi-delete</v-icon>
+          <v-icon @click="deletePost(item.id)" class="margin-left">mdi-delete</v-icon>
         </v-list-item>
       </template>
     </v-list>
@@ -69,6 +72,10 @@ export default {
   color: #424141;
   text-decoration: none;
   display: flex;
+}
+
+.margin-left {
+  margin-left : 30px;
 }
 
 .wide {
